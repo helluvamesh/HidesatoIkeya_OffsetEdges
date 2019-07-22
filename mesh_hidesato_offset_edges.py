@@ -1080,6 +1080,7 @@ class OffsetEdgesProfile(bpy.types.Operator, OffsetBase):
 def draw_item(self, context):
     lay = self.layout
     lay.separator()
+    lay.operator_context = 'INVOKE_DEFAULT'
     lay.operator('mesh.hidesato_offset_edges', text='Offset').geometry_mode='offset'
     lay.operator('mesh.hidesato_offset_edges', text='Offset Extrude').geometry_mode='extrude'
     lay.operator('mesh.hidesato_offset_edges', text='Offset Move').geometry_mode='move'
