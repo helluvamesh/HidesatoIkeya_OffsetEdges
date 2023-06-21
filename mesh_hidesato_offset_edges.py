@@ -20,7 +20,7 @@
 bl_info = {
     "name": "Hidesato Offset Edges",
     "author": "Hidesato Ikeya",
-    "version": (0, 4, 1),
+    "version": (0, 4, 2),
     "blender": (3, 4, 0),
     "location": "VIEW3D > Edge menu(CTRL-E) > Offset Edges",
     "description": "Offset Edges",
@@ -246,11 +246,12 @@ class OffsetBase:
                     norm_x = norm_x.to_3d().normalized()
                     norm_y = norm_y.to_3d().normalized()
                     norm_z = norm_z.to_3d().normalized()
-                if m.use_x:
+                mirror_axes = m.use_axis
+                if mirror_axes[0]:
                     mirror_planes.append((loc, norm_x, merge_limit))
-                if m.use_y:
+                if mirror_axes[1]:
                     mirror_planes.append((loc, norm_y, merge_limit))
-                if m.use_z:
+                if mirror_axes[2]:
                     mirror_planes.append((loc, norm_z, merge_limit))
         return mirror_planes
 
